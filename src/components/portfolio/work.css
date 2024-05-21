@@ -4,6 +4,14 @@
   justify-content: center;
 }
 
+.work__filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.75rem;
+  margin-bottom: var(--mb-2);
+}
+
 .work__item {
   cursor: pointer;
   color: var(--title-color);
@@ -26,9 +34,7 @@
 }
 
 .work__img {
-  /* width: 295px; */
-  width: 500px;
-  justify-self: center;
+  width: 295px;
   border-radius: 1rem;
   margin-bottom: var(--mb-1);
 }
@@ -57,86 +63,14 @@
   transform: translateX(0.25rem);
 }
 
-.work__slider {
-  position: relative;
-  overflow: hidden;
+/* Active Item Work */
+.active-work {
+  background-color: var(--title-color);
+  color: var(--container-color);
 }
 
-.work__slider-inner {
-  display: flex;
-  justify-content: center; /* This centers the items on the main axis */
-  align-items: center;
-  transition: transform 0.5s ease;
-}
-
-.work__slider-item {
-  flex: 0 0 100%;
-  text-align: center;
-}
-
-.work__slider-nav {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.work__slider-nav-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ccc;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.work__slider-nav-dot.active {
-  background-color: #333;
-}
-
-.work__slider-arrows {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-}
-
-.work__slider-arrow {
-  background-color: #fff;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.work__slider-arrow:hover {
-  opacity: 1;
-}
-
-.work__slider-playpause {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background-color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.work__slider-playpause:hover {
-  opacity: 1;
-}
-
-/* Responsive Design */
+/*==================== MEDIA QUERIES ====================*/
+/* For large devices */
 @media screen and (max-width: 992px) {
   .work__container {
     gap: 1.25rem;
@@ -155,13 +89,10 @@
   }
 }
 
+/* For medium devices */
 @media screen and (max-width: 768px) {
   .work__container {
     grid-template-columns: max-content;
-  }
-
-  .work__slider-item {
-    padding: 0 1rem;
   }
 }
 
@@ -175,12 +106,22 @@
   }
 }
 
+/* For small devices */
 @media screen and (max-width: 350px) {
   .work__item {
     font-size: var(--small-font-size);
   }
 
-  .work__slider-item {
-    padding: 0 0.5rem;
+  .work__filters {
+    column-gap: 0.25rem;
   }
+}
+
+
+.swiper-button-next, .swiper-button-prev {
+  color: var(--title-color);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--title-color);
 }

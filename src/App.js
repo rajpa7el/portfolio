@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import About from './components/about/About';
-import Work from './components/portfolio/Work';
 import Contact from './components/contact/Contact'
 import ParticlesBackground from './components/particles/ParticlesBackground';
+import Portfolio from './components/portfolio/Portfolio';
+
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function RoutesWithReanimation() {
       <Routes location={location} key={location.pathname}> 
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/portfolio" element={<Work />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
   );
