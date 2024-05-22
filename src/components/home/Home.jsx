@@ -1,7 +1,9 @@
 import "./home.css";
+import { useEffect } from 'react';
 import Data from "./Data";
 import Social from "./Social";
 import { motion } from "framer-motion";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Home = () => {
   const profileAnimation = {
@@ -20,8 +22,23 @@ const Home = () => {
     },
   };
 
+  useEffect(() => {
+    toast('Still working on my website...', {
+      icon: '🚧',
+      style: {
+        borderRadius: '10px',
+        background: 'hsl(var(--hue), var(--sat), 0%)', // Using the CSS variable for dark mode
+        color: '#fff',
+      },
+    });
+  }, []);
+
   return (
     <section className="home section" id="home">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
       <div className="home__container container grid">
         <div className="home__content grid">
           <Social />

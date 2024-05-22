@@ -6,11 +6,11 @@
 }
 
 .swiper-button-prev {
-  left: 50px; /* Adjust position as needed */
+  left: 50px; 
 }
 
 .swiper-button-next {
-  right: 50px; /* Adjust position as needed */
+  right: 50px; 
 }
 
 /* Other existing styles */
@@ -26,7 +26,7 @@
 }
 
 .portfolio__img {
-  max-width: 45%;
+  max-width: 50%;
   border-radius: 1rem;
   margin-bottom: 1rem;
 }
@@ -44,14 +44,29 @@
 /* Swiper specific styles */
 .mySwiper {
   padding: 1rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
 }
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-  background: #000; /* Set progress bar color to black */
+  background: #000;
   top: auto
 }
 
 /* Media Queries */
+
+@media screen and (max-width: 1350px) {
+  .portfolio__img {
+    max-width: 50%;
+  }
+
+  .mySwiper {
+    padding: 1rem;
+    margin-left: 9rem;
+    margin-right: 9rem;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .portfolio__title {
     font-size: 1.25rem;
@@ -60,6 +75,17 @@
   .portfolio__category {
     font-size: 0.875rem;
   }
+
+  .portfolio__img {
+    max-width: 75%;
+  }
+
+  .mySwiper {
+    padding: 1rem;
+    margin-left: 7rem;
+    margin-right: 7rem;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -69,6 +95,12 @@
   
   .container1{
     margin-top: 25%;
+  }
+
+  .mySwiper {
+    padding: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
   }
   
 }
@@ -80,6 +112,12 @@
     top: 85%;
     width: 5px;
     height: 5px;
+  }
+
+  .mySwiper {
+    padding: 1rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
 
   .portfolio__img {
