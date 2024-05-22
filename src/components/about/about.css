@@ -83,6 +83,10 @@
     .about__description {
         padding: 0;
     }
+
+    .about_button{
+        margin-bottom: 5rem;
+    }
   }
   
   /* For small devices */

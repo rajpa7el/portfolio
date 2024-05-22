@@ -54,7 +54,7 @@ import { motion } from "framer-motion";
 const Portfolio = () => {
     return (
       <section className="portfolio section" id="portfolio">
-        <div className="container">
+        <div className="container1">
           <motion.h2
             className="section__title"
             initial={{ opacity: 0, y: -50 }}
