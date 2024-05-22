@@ -41,6 +41,13 @@
   color: #6c757d;
 }
 
+.portfolio__title a,
+.portfolio__category a {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+
 /* Swiper specific styles */
 .mySwiper {
   padding: 1rem;
