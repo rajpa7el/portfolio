@@ -46,7 +46,7 @@ const Data = () => {
       whileInView="visible"
       viewport={{ once: false }} 
       whileHover="hover">
-        <a href="/contact" className="button button-flex"> {"< Say Hello />"} </a>
+        <a href="#contact" className="button button-flex"> {"< Say Hello />"} </a>
       </motion.div>
     </motion.div>
   );
