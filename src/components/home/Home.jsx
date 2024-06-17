@@ -42,7 +42,11 @@ const Home = () => {
       <div className="home__container container grid">
         <div className="home__content grid">
           <Social />
-          <motion.div initial={{ opacity: 0, x: 50, y: -50 }} animate={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 2 }}>
+          <motion.div 
+          initial={{ opacity: 0, x: 50, y: -50 }} 
+          whileInView={{ opacity: 1, x: 0, y: 0 }} 
+          viewport={{ once: false }}
+          transition={{ duration: 2 }}>
             <motion.div
               animate={{...profileAnimation.animate}}
               className="home__img profiles__animate"

@@ -1,42 +1,34 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import "./App.css";
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import About from './components/about/About';
-import Contact from './components/contact/Contact'
-import ParticlesBackground from './components/particles/ParticlesBackground';
 import Portfolio from './components/portfolio/Portfolio';
+import Contact from './components/contact/Contact';
+import ParticlesBackground from './components/particles/ParticlesBackground';
+import Preloader from './components/preloader/Preloader';
 
-
-function App() {
-  return (
-    <Router>
-      <ParticlesBackground />
-      <div className="App">
-        <Header />
-
-        <main className="main">
-          <RoutesWithReanimation />
-        </main>
-      </div>
-    </Router>
-  );
-}
-
-function RoutesWithReanimation() {
-  const location = useLocation(); 
+const App = () => {
+  const [loading, setLoading] = useState(true);
 
   return (
-      <Routes location={location} key={location.pathname}> 
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+    <>
+      {loading && <Preloader setLoading={setLoading} />}
+      {!loading && (
+        <>
+          <Header />
+          <ParticlesBackground />
+          <main className='main'>
+            <Home />
+            <About />
+            <Portfolio />
+            <Contact />
+          </main>
+        </>
+      )}
+    </>
   );
 }
 
 export default App;
-
 

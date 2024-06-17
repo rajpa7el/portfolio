@@ -7,12 +7,15 @@ const Info = () => {
   };
 
   return (
-    <div className="about__info grid">
+    <motion.div
+      className="about__info grid"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false }}
+    >
       <motion.div
         className="about__box"
         variants={boxVariants}
-        initial="hidden"
-        animate="visible"
         transition={{
           type: 'spring',
           stiffness: 100,
@@ -27,8 +30,6 @@ const Info = () => {
       <motion.div
         className="about__box"
         variants={boxVariants}
-        initial="hidden"
-        animate="visible"
         transition={{
           type: 'spring',
           stiffness: 100,
@@ -40,7 +41,7 @@ const Info = () => {
         <h3 className="about__title">Completed</h3>
         <span className="about__subtitle">10 + Projects</span>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

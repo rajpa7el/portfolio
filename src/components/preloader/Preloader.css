@@ -1,0 +1,29 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-color);
+    z-index: 9999;
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-semi-bold);
+    transition: opacity 0.3s ease-in-out;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .typing-effect {
+    display: flex;
+  }
+  
+  .click-to-continue {
+    position: absolute;
+    bottom: 20px;
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    cursor: pointer;
+  }

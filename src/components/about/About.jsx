@@ -1,5 +1,5 @@
 import "./about.css";
-import AboutImg from "../../assets/Raj3.jpg";
+import AboutImg from "../../assets/raj.png";
 import Resume from "../../assets/Resume.pdf";
 import Info from "./Info";
 import { motion } from "framer-motion";
@@ -30,7 +30,8 @@ const About = () => {
     <section className="about section" id="about">
       <motion.h2
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: false }}
         variants={headerVariants}
         transition={{ duration: 1 }}
         className="section__title"
@@ -39,7 +40,8 @@ const About = () => {
       </motion.h2>
       <motion.span
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: false }}
         variants={headerVariants}
         transition={{ duration: 1 }}
         className="section__subtitle"
@@ -53,7 +55,8 @@ const About = () => {
           alt=""
           className="about__img"
           initial="hidden"
-          animate="visible"
+        whileInView="visible"
+        viewport={{ once: false }}
           variants={imageVariants}
           transition={{ type: "spring", stiffness: 100, damping: 5 }}
         />
@@ -64,7 +67,8 @@ const About = () => {
             className="about__description"
             variants={paragraphVariants}
             initial="hidden"
-            animate="visible"
+        whileInView="visible"
+        viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             What drives me is crafting a software or website and even diving
@@ -80,7 +84,8 @@ const About = () => {
               className="button button--flex about_button"
               variants={buttonVariants}
               initial="hidden"
-              animate="visible"
+        whileInView="visible"
+        viewport={{ once: false }}
               whileHover="hover"
               transition={{ duration: 0.6, delay: 0.4 }}
           >

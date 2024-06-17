@@ -51,7 +51,7 @@ const Contact = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         variants={headerVariants}
       >
         <h2 className="section__title contact_head">Get in touch</h2>
@@ -63,13 +63,14 @@ const Contact = () => {
         variants={contactVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false }}
       >
         <motion.div
           className="contact__content"
           variants={contactVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: false }}
         >
           <motion.h3 className="contact__title" variants={cardVariants}>
             Talk to me
@@ -134,7 +135,7 @@ const Contact = () => {
           variants={formVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <h3 className="contact__title contacttitle">
             Contact me for full-time jobs, <br />
@@ -148,7 +149,7 @@ const Contact = () => {
             variants={formVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <div className="contact__form-div">
               <label className="contact__form-tag">Name</label>

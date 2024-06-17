@@ -1,7 +1,6 @@
 // Data.js
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 const typewriterWords = ["Developer", "Creator", "Thinker"];
 
@@ -28,18 +27,26 @@ const Data = () => {
   const buttonVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 },
-    hover: { scale: 1.1, transition: { duration: 0.1 } },
+    hover: { scale: 1.1, transition: { duration: 0.25 } },
   };
 
   return (
-    <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="home__data">
+    <motion.div 
+    initial={{ opacity: 0, y: 100 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: false }}
+    transition={{ duration: 1 }} className="home__data">
       <h1 className="home__title">Raj Patel</h1>
       <h3 className="home__subtitle">{`${typewriterWords[index].substring(0, subIndex)}`}<span className="typewriter-cursor"></span></h3>
       <p className="home__description">
         I'm a fourth year Computer Science student who loves to code Web Apps, Games and more.
       </p>
-      <motion.div variants={buttonVariants} initial="hidden" animate="visible" whileHover="hover">
-        <Link to="/contact" className="button button-flex"> {"< Say Hello />"} </Link>
+      <motion.div variants={buttonVariants} 
+      initial="hidden" 
+      whileInView="visible"
+      viewport={{ once: false }} 
+      whileHover="hover">
+        <a href="/contact" className="button button-flex"> {"< Say Hello />"} </a>
       </motion.div>
     </motion.div>
   );

@@ -25,7 +25,8 @@ const Social = () => {
       className="home__social"
       variants={containerVariants}
       initial="initial"
-      animate="animate"
+      whileInView="animate"
+      viewport={{ once: false }}
     >
       <motion.a
         href="https://www.linkedin.com/in/rajpa7el/"

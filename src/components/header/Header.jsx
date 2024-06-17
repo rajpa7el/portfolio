@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; 
 import './header.css';
 
 const Header = () => {
@@ -11,17 +10,15 @@ const Header = () => {
   return (
     <header className='header'>
       <nav className="nav">
-        {/* Use Link component for navigation */}
-        <Link to="/" className="nav__logo">Raj Patel</Link>
+        <a href="#home" className="nav__logo">Raj Patel</a>
         
         <div className={isMenuOpen ? "nav__menu show-menu" : "nav__menu"}>
           <ul className="nav__list grid">
-            {/* Update href to to, indicating Link to prop */}
-            {['/', '/about', '/portfolio', '/contact'].map((path, index) => (
+            {['home', 'about', 'portfolio', 'contact'].map((section, index) => (
               <li key={index} className="nav__item">
-                <Link to={path} className="nav__link" onClick={handleToggle}>
-                  <i className={`uil ${['uil-estate', 'uil-user', 'uil-code-branch', 'uil-message'][index]} nav__icon`}></i> {['Home', 'About', 'Projects', 'Contact'][index]}
-                </Link>
+                <a href={`#${section}`} className="nav__link" onClick={handleToggle}>
+                  <i className={`uil ${['uil-estate', 'uil-user', 'uil-code-branch', 'uil-message'][index]} nav__icon`}></i> {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
               </li>
             ))}
           </ul>
@@ -41,8 +38,4 @@ const Header = () => {
 }
 
 export default Header;
-
-
-
-
 
