@@ -68,6 +68,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
 html {
@@ -113,6 +114,7 @@ textarea {
 body {
   background-color: var(--body-color);
   color: var(--text-color);
+  cursor: none;
 }
 
 h1,
@@ -131,7 +133,6 @@ a {
 }
 
 button {
-  cursor: pointer;
   border: none;
   outline: none;
 }

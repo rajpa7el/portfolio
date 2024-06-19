@@ -7,17 +7,19 @@ import Portfolio from './components/portfolio/Portfolio';
 import Contact from './components/contact/Contact';
 import ParticlesBackground from './components/particles/ParticlesBackground';
 import Preloader from './components/preloader/Preloader';
+import CustomCursor from './components/cursor/CustomCursor';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
   return (
     <>
-      {loading && <Preloader setLoading={setLoading} />}
+      {loading && <><Preloader setLoading={setLoading} /> <CustomCursor /></>}
       {!loading && (
         <>
           <Header />
           <ParticlesBackground />
+          <CustomCursor />
           <main className='main'>
             <Home />
             <About />
