@@ -1,133 +1,94 @@
-/* Portfolio.css */
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #000; 
+.portfolio__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
 }
 
-.swiper-button-prev {
-  left: 50px; 
-}
-
-.swiper-button-next {
-  right: 50px; 
-}
-
-/* Other existing styles */
 .portfolio__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: var(--container-color);
+  background: var(--container-color);
+  padding: 1.3rem;
+  border-radius: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1.25rem;
-  border-radius: 1rem;
+  transition: all 0.3s ease-in-out;
 }
 
-.portfolio__img {
-  max-width: 50%;
-  border-radius: 1rem;
+.portfolio__item-image {
+  border-radius: 1.5rem;
+  overflow: hidden;
   margin-bottom: 1rem;
 }
 
-.portfolio__title {
-  font-size: 1.5rem;
-  font-weight: bold;
+.portfolio__item-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.portfolio__category {
-  font-size: 1rem;
-  color: #6c757d;
+.portfolio__item h3 {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.5rem;
 }
 
-.portfolio__title a,
-.portfolio__category a {
-  color: inherit; 
-  text-decoration: none; 
+.portfolio__item p {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  margin-bottom: 1rem;
 }
 
-
-/* Swiper specific styles */
-.mySwiper {
-  padding: 1rem;
-  margin-left: 20rem;
-  margin-right: 20rem;
+.portfolio__item-cta {
+  display: flex;
+  justify-content: center;
 }
 
-.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-  background: #000;
-  top: auto
+.btn {
+  display: inline-block;
+  background-color: var(--title-color);
+  color: var(--container-color);
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.4rem;
+  font-weight: var(--font-medium);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--title-color-dark);
 }
 
 /* Media Queries */
-
-@media screen and (max-width: 1350px) {
-  .portfolio__img {
-    max-width: 50%;
+@media screen and (max-width: 992px) {
+  .portfolio__container {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .mySwiper {
+@media screen and (max-width: 576px) {
+  .portfolio__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .portfolio__item {
     padding: 1rem;
-    margin-left: 9rem;
-    margin-right: 9rem;
   }
 }
 
 @media screen and (max-width: 992px) {
-  .portfolio__title {
-    font-size: 1.25rem;
+  .portfolio__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
-
-  .portfolio__category {
-    font-size: 0.875rem;
-  }
-
-  .portfolio__img {
-    max-width: 75%;
-  }
-
-  .mySwiper {
-    padding: 1rem;
-    margin-left: 7rem;
-    margin-right: 7rem;
-  }
-
 }
 
 @media screen and (max-width: 768px) {
-  .portfolio__img {
-    max-width: 80%;
+  .portfolio__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
-  
-  .container1{
-    margin-top: 25%;
-  }
-
-  .mySwiper {
-    padding: 1rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
-  }
-  
 }
 
-@media screen and (max-width: 640px) {
-  .swiper-button-next,
-  .swiper-button-prev {
-    /* display: none; */
-    top: 85%;
-    width: 5px;
-    height: 5px;
-  }
-
-  .mySwiper {
+@media screen and (max-width: 576px) {
+  .portfolio__item {
     padding: 1rem;
-    margin-left: 0rem;
-    margin-right: 0rem;
-  }
-
-  .portfolio__img {
-    max-width: 100%;
   }
 }

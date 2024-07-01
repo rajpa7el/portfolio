@@ -6,7 +6,7 @@ import About from './components/about/About';
 import Portfolio from './components/portfolio/Portfolio';
 import Contact from './components/contact/Contact';
 import ParticlesBackground from './components/particles/ParticlesBackground';
-import Preloader from './components/preloader/Preloader';
+import Preloader from './components/preloader/CodeAssemblyPreloader';
 import CustomCursor from './components/cursor/CustomCursor';
 
 const App = () => {
