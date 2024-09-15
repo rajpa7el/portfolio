@@ -1,4 +1,4 @@
-/*=============== GOOGLE FONTS ===============*/
+/* =============== GOOGLE FONTS =============== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
@@ -68,12 +68,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
+  cursor: auto;
 }
 
 html {
   scroll-behavior: smooth;
-  /* scroll-snap-type: start; */
   scroll-snap-type: y mandatory;
 }
 
@@ -81,7 +80,6 @@ html {
   scroll-snap-type: y mandatory;
   height: 100vh; /* Ensure the main container is full viewport height */
   overflow-y: scroll; /* Enable vertical scrolling */
-  scroll-snap-type: y mandatory; /* Enable vertical scroll snap */
 
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #000000 var(--body-color); /* Firefox */
@@ -143,20 +141,15 @@ img {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-/* .section {
-  padding: 6rem 0 2rem;
-  height: 100vh;
-  scroll-snap-align: start;
-} */
 
 .section {
   padding: 6rem 0 2rem;
   height: 100vh;
   scroll-snap-align: start;
-  overflow-y: auto; /* Allow scrolling within the section */
-  scroll-snap-stop: always; /* Ensure that scroll snapping always occurs */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  overflow-y: auto; 
+  scroll-snap-stop: always; 
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
 }
 
 .section__title {

@@ -6,20 +6,18 @@ import About from './components/about/About';
 import Portfolio from './components/portfolio/Portfolio';
 import Contact from './components/contact/Contact';
 import ParticlesBackground from './components/particles/ParticlesBackground';
-import Preloader from './components/preloader/CodeAssemblyPreloader';
-import CustomCursor from './components/cursor/CustomCursor';
+import HamsterLoader from './components/preloader/HamsterLoader';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
   return (
     <>
-      {loading && <><Preloader setLoading={setLoading} /> <CustomCursor /></>}
+      {loading && <><HamsterLoader setLoading={setLoading} /></>}
       {!loading && (
         <>
           <Header />
           <ParticlesBackground />
-          <CustomCursor />
           <main className='main'>
             <Home />
             <About />

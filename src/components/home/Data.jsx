@@ -1,28 +1,18 @@
 // Data.js
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const typewriterWords = ["Developer", "Creator", "Thinker"];
+const words = ["Developer", "Creator", "Thinker"];
 
 const Data = () => {
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [reverse, setReverse] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
-    if (subIndex === typewriterWords[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 500);
-    } else if (subIndex === 0 && reverse) {
-      setReverse(false);
-      setIndex((prevIndex) => (prevIndex + 1) % typewriterWords.length);
-    }
-
     const timeout = setTimeout(() => {
-      setSubIndex((prevSubIndex) => prevSubIndex + (reverse ? -1 : 1));
-    }, reverse ? 75 : subIndex === typewriterWords[index].length ? 100 : 150);
-
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 2000); // Change word every 2 seconds
     return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse]);
+  }, [currentWordIndex]);
 
   const buttonVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -37,7 +27,19 @@ const Data = () => {
     viewport={{ once: false }}
     transition={{ duration: 1 }} className="home__data">
       <h1 className="home__title">Raj Patel</h1>
-      <h3 className="home__subtitle">{`${typewriterWords[index].substring(0, subIndex)}`}<span className="typewriter-cursor"></span></h3>
+      <h3 className="home__subtitle">
+        <AnimatePresence mode='wait'>
+          <motion.span
+            key={words[currentWordIndex]}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
+          >
+            {words[currentWordIndex]}
+          </motion.span>
+        </AnimatePresence>
+      </h3>
       <p className="home__description">
         I'm a fourth year Computer Science student who loves to code Web Apps, Games and more.
       </p>

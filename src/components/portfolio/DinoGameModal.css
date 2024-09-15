@@ -1,239 +1,296 @@
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.game-area {
+  width: 100%;
+  height: 200px;
+  border: 2px solid var(--text-color);
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;
+  background-color: #87CEEB; /* Sky blue background */
+}
+
+.game-area:not(.game-active) .obstacle,
+.game-area:not(.game-active) .cloud {
+  animation-play-state: paused;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: #DEB887; /* Desert sand color */
+}
+
+.modal-content {
+  background-color: var(--container-color);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.game-area {
+  width: 100%;
+  height: 200px;
+  border: 2px solid var(--text-color);
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.game-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dino {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.dino svg {
+  width: 100%;
+  height: 100%;
+}
+
+.obstacle {
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  bottom: 20px;
+  right: -20px;
+  animation: obstacle 1.5s infinite linear;
+  z-index: 15;
+}
+
+.obstacle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cloud {
+  position: absolute;
+  z-index: 1;
+}
+
+.cloud-1 {
+  top: 30px;
+  left: 10%;
+  width: 60px;
+  height: 20px;
+}
+
+.cloud-2 {
+  top: 40px;
+  left: 50%;
+  width: 50px;
+  height: 15px;
+}
+
+.cloud-3 {
+  top: 30px;
+  right: 15%;
+  width: 40px;
+  height: 18px;
+}
+
+.cloud svg {
+  width: 100%;
+  height: 100%;
+}
+
+.jump {
+  animation: jump 0.5s;
+}
+
+.score,
+.high-score {
+  position: absolute;
+  top: 10px;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}
+
+.score {
+  left: 10px;
+}
+
+.high-score {
+  right: 10px;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
   }
-  
+  40% {
+    transform: translateY(-60px);
+  }
+  60% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes obstacle {
+  0% {
+    right: -20px;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+.start-screen,
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.game-instructions {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
   .modal-content {
-    background-color: var(--container-color);
-    padding: 2rem;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
+    padding: 1rem;
   }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
+
   .game-area {
-    width: 100%;
-    height: 200px;
-    border: 2px solid var(--text-color);
-    position: relative;
-    overflow: hidden;
-    margin: 20px auto;
+    height: 150px;
   }
-  
-  .game-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-  
+
   .dino {
-    width: 40px;
-    height: 40px;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADN0lEQVR4nO2ZW4hNURjHf2fMuGQml+EwkilCiKKUS1GKB0WUeOCB8iAzHmgU5UEUDyRveKDkoTzkmlsUHoZ4QGneXEIuM8ptnMv3af3PXu2z9tlrn3M5x9m/+mr3Xmvtb33/b31rfeu7BjR3TAEOApeA10AZqALvgLvAZmBM3gdMApYDx4HHwHfgF/ADqAQkCVAGQsAUfQLSXgKbgNF5gTgEnAMagG8KwAZ2DZgT0zfZ+gBL5OFfQHUASPqV0gngCFAKtAF6A3P1XGGCdmXd87W3gBsCYbPwBzgo7/SL6LdKsZyW/H2WCTPWKxDrHgHsnUifu0A/x5oewAonzJ36GYA9wHZgGjBU1g4bBFDmeqCuvOO38R5op/mxMlnbbDABT4ABzppOyrfVTvuZY00XYL7TZzRw3hOIzcBih9x7R3MOAZM9/UzwFmMfgIWeNQM8/T47C2N2MkDsdPq0V/6E7DqwQjHsGluBF067TXnrCWTIyWFT6pBjg7aelyb+hhIGYRp/POMbvADuc/LE5dBKB2SrE92SKW4yIyIxVqsKbPDktY3jW8eoOa9JUflS4eklkMMeZ54otfaGpEPGYLJyMgYsC6n0sQC2iJlS7UxUjk9GNhD0Alb7FDRJQIrs85RRIQmwMSsIc5cljsJGkZwC+mZx8A5AKQMgyqSspUWAVHR/1xRAfKaUm5JGSZo0BUjWhWFTgNQ0BZAO/wNE1ow7TdKRMHUuJQFSGaEjzSm1HgQB0t0pE7Ke7NfnMmAFsMFxN81WIBDtwPX5U82LckwQICeB3SJ9ZeAOcAsY57S/ixA+i5RzLu2qiMEb1YTZtwNnxeTrJZi7pHzuzD+LyYtqT0X0f6n+3fT9NXBaIN+LeC5RPvYW+a7JC4jJjD6yUl0k7JXo2LVKN9OD2073HuhlkbC9OQKxlPodcCsN72/OYy4UELPGVpEtS8w2Cq2Vg3X+HLDUyQEX7jeBF4qE66K2SfJmgNjs1+YAsCgCt7FjmFQ1sxACDQZc5sj5VgHAfoSM/hxbI9C+HLNnvAQOVKa5bwAgYcTLlG6xYwBw3pEkUW3YHgAAAOH/P5JOA7wYpwAAAABJRU5ErkJggg==');
-    background-size: contain;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    left: 20px;
+    width: 30px;
+    height: 30px;
   }
- 
 
   .obstacle {
-    width: 20px;
-    height: 40px;
-    background-color: var(--text-color);
-    position: absolute;
-    bottom: 0;
-    right: -20px;
-    animation: obstacle 1.5s infinite linear;
+    width: 15px;
+    height: 30px;
   }
 
-  
-  
-  .jump {
-    animation: jump 0.5s;
-  }
-  
-  .score, .high-score {
-    position: absolute;
-    top: 10px;
-    font-size: var(--small-font-size);
-    color: var(--text-color);
-  }
-  
-  .score {
-    left: 10px;
-  }
-  
-  .high-score {
-    right: 10px;
-  }
-  
   @keyframes jump {
     0% {
       transform: translateY(0);
     }
     40% {
-      transform: translateY(-60px);
+      transform: translateY(-45px);
     }
     60% {
-      transform: translateY(-60px);
+      transform: translateY(-45px);
     }
     100% {
       transform: translateY(0);
     }
   }
-  
-  @keyframes obstacle {
+}
+
+@media screen and (max-width: 480px) {
+  .modal-content {
+    padding: 0.5rem;
+  }
+
+  .game-area {
+    height: 120px;
+  }
+
+  .dino {
+    width: 25px;
+    height: 25px;
+  }
+
+  .obstacle {
+    width: 12px;
+    height: 25px;
+  }
+
+  .score,
+  .high-score {
+    font-size: 12px;
+  }
+
+  @keyframes jump {
     0% {
-      right: -20px;
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-35px);
+    }
+    60% {
+      transform: translateY(-35px);
     }
     100% {
-      right: 100%;
+      transform: translateY(0);
     }
   }
-  
-  .start-screen, .game-over {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .game-instructions {
-    margin-top: 20px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .modal-content {
-      padding: 1rem;
-    }
-  
-    .game-area {
-      height: 150px;
-    }
-  
-    .dino {
-      width: 30px;
-      height: 30px;
-    }
-  
-    .obstacle {
-      width: 15px;
-      height: 30px;
-    }
-  
-    @keyframes jump {
-      0% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-45px);
-      }
-      60% {
-        transform: translateY(-45px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .modal-content {
-      padding: 0.5rem;
-    }
-  
-    .game-area {
-      height: 120px;
-    }
-  
-    .dino {
-      width: 25px;
-      height: 25px;
-    }
-  
-    .obstacle {
-      width: 12px;
-      height: 25px;
-    }
-  
-    .score, .high-score {
-      font-size: 12px;
-    }
-  
-    @keyframes jump {
-      0% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-35px);
-      }
-      60% {
-        transform: translateY(-35px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-  }
+}
 
-  .portfolio__item {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .dino-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    z-index: 1;
-  }
-  
-  .portfolio__item-image {
-    position: relative;
-  }
-  
-  .btn-primary {
-    background-color: var(--title-color);
-    color: var(--container-color);
-    transition: all 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: var(--title-color-dark);
-    transform: translateY(-3px);
-  }
+.portfolio__item {
+  position: relative;
+  overflow: hidden;
+}
 
+.dino-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  z-index: 1;
+}
 
-  
+.portfolio__item-image {
+  position: relative;
+}
 
-   
+.btn-primary {
+  background-color: var(--title-color);
+  color: var(--container-color);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--title-color-dark);
+  transform: translateY(-3px);
+}

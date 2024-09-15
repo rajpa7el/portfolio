@@ -112,6 +112,41 @@
   color: var(--title-color);
 }
 
+.typewriter {
+  overflow: hidden; /* Ensures the content is hidden when outside the box */
+  border-right: 0.15em solid var(--text-color); /* Cursor effect */
+  white-space: nowrap; /* Keeps the content on a single line */
+  animation: typing 6s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+  width: 0; /* Initial width for the typing effect */
+}
+
+/* Typing animation */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 100%;
+  }
+  60% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Cursor blink animation */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--text-color);
+  }
+}
+
 @media screen and (max-width: 992px) {
     .home__content {
       grid-template-columns: 100px repeat(2, 1fr);
