@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import DinoGameModal from './DinoGameModal';
+import React, { lazy, Suspense, useState } from 'react';
+
 import { motion } from 'framer-motion';
+
+const DinoGameModal = lazy(() => import('./DinoGameModal'));
 
 const DinoGameProjectItem = ({ project }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,8 +77,10 @@ const DinoGameProjectItem = ({ project }) => {
       </motion.div>
 
       {isModalOpen && (
-        <DinoGameModal onClose={() => setIsModalOpen(false)} />
-      )}
+  <Suspense fallback={<div>Loading...</div>}>
+    <DinoGameModal onClose={() => setIsModalOpen(false)} />
+  </Suspense>
+)}
     </>
   );
 };

@@ -8,6 +8,8 @@ const DinoGameModal = ({ onClose }) => {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [currentCactus, setCurrentCactus] = useState(0);
+  const [obstacleKey, setObstacleKey] = useState(0);
+
 
   const dinoRef = useRef(null);
   const obstacleRef = useRef(null);
@@ -82,6 +84,7 @@ const DinoGameModal = ({ onClose }) => {
     setGameOver(false);
     setScore(0);
     // setCurrentCactus(Math.floor(Math.random() * cactusSVGs.length));
+    setObstacleKey((prevKey) => prevKey + 1);
   };
 
   useEffect(() => {
@@ -156,14 +159,14 @@ const DinoGameModal = ({ onClose }) => {
   };
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={handleClick}>
       <div className="modal-content">
         <button className="close-button" onClick={onClose}>
           ×
         </button>
         <h2>Dino Runner Game</h2>
         <div
-          className={`game-area ${gameStarted ? "game-active" : ""}`}
+          className={`game-area ${gameStarted && !gameOver ? "game-active" : ""}`}
           onClick={handleClick}
         >
           {!gameStarted ? (
@@ -199,7 +202,7 @@ const DinoGameModal = ({ onClose }) => {
                   <rect x="0" y="45" width="5" height="5" fill="#8B008B" />
                 </svg>
               </motion.div>
-              <div className="obstacle" ref={obstacleRef}>
+              <div className="obstacle" ref={obstacleRef} key={obstacleKey}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 90">
                   {cactusSVGs[currentCactus]}
                 </svg>

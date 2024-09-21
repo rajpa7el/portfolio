@@ -144,7 +144,8 @@ img {
 
 .section {
   padding: 6rem 0 2rem;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100vh;
   scroll-snap-align: start;
   overflow-y: auto; 
   scroll-snap-stop: always; 
