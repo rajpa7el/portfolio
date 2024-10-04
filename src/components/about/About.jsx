@@ -1,6 +1,6 @@
 import "./about.css";
 import AboutImg from "../../assets/raj.png";
-import Resume from "../../assets/Resume.pdf";
+// import Resume from "../../assets/Resume.pdf";
 import Info from "./Info";
 import { motion } from "framer-motion";
 
@@ -80,7 +80,7 @@ const About = () => {
 
           <motion.a
               download=""
-              href={Resume}
+              // href={Resume}
               className="button button--flex about_button"
               variants={buttonVariants}
               initial="hidden"
